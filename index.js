@@ -45,7 +45,7 @@ client.on('ready', async () => {
   }
 });
 
-client.login('OTUwNzQwNDYxMzA2NDA4OTcw.YidUDQ.0dHlXpcKKaaZJXDf_e4-PblNUho');
+client.login('token');
 
 
 passport.serializeUser((user, done) => {
