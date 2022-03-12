@@ -40,8 +40,6 @@ client.on('ready', async () => {
   console.log('bot hazır.');
   if (!Array.isArray(data.get(`aallz`))) {
     data.set(`aallz`, []);
-  } else if (!Array.isArray(data.get(`banned`))) {
-    data.set(`banned`, []);
   }
 });
 
@@ -98,19 +96,7 @@ app.get('/login', (req, res, next) => {
 
 passport.authenticate('discord'));
 app.get('/auth', passport.authenticate('discord', { failureRedirect: '/' }), (req, res) => {
-	const banned = data.get(`ban_${req.user.id}`);
-  if (!banned) {
     return res.redirect('/');
-  } else if (banned == 'yes') {
-    req.session.destroy(() => {
-      req.logout();
-      res.render('404', {
-        member: {},
-        error_msg: 'Sen siteden yasaklanmışsın!',
-        admins: admins
-      })
-    });
-  }
 });
 
 app.get("/logout", function(req, res) {
