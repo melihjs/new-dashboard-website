@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Takolya - Geliştiriciler</title>
+    <meta name="next-head-count" content="3" />
+    <link
+      rel="preload"
+      href="takolya.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="takolya.css"
+      data-n-g=""
+    />
+    <noscript data-n-css=""></noscript>
+    <script
+      defer=""
+      nomodule=""
+      src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"
+    ></script>
+    <script
+      src="/_next/static/chunks/webpack-af28476a2e7790fd48db.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/framework-2191d16384373197bc0a.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/main-011e14431c997dd5213e.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/_app-509c2dc37a21b6cdf9cc.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/index-d2acd689f30c49e2cc47.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/C95lqdqwZ5vGD4yNUSLu7/_buildManifest.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/C95lqdqwZ5vGD4yNUSLu7/_ssgManifest.js"
+      defer=""
+    ></script>
+  </head>
+  <body>
+    <div id="__next">
+      <html data-theme="dark">
+        <div class="bg-base-300 overflow-x-hidden">
+          <div class="transition-all duration-300">
+            <nav
+              class="navbar bg-base-400 lg:sticky top-0 h-20 z-50 text-neutral-content p-4"
+            >
+              <div class="flex-none px-2 mx-2">
+                <span class="text-lg font-bold">Takolya</span>
+              </div>
+              <div class="flex-1 px-2 mx-2">
+                <div class="items-stretch hidden lg:flex">
+                  <a
+                    href="/"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4 text-white underline"
+                    >Ana Sayfa</a
+                  ><a
+                    href="/threads"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                    >Konular</a
+                  ><a
+                    href="/create-thread"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                    >Konu Oluştur</a
+                  >
+                  <% if (member) { %>
+                    <% if (!admins.includes(member.id)) { %>
+                      <a
+                        href="/redeem"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Kod Kullan</a
+                      >
+                    <% } else { %>
+                      <a
+                        href="/redeem"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Kod Kullan</a
+                      ><a
+                        href="/admin"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Yetkili Paneli</a
+                      >                    
+                    <% } %>
+                  <% } else { %>
+                    <a
+                      href="/redeem"
+                      class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                      >Kod Kullan</a
+                    >
+                  <% } %>
+                </div>
+              </div>
+              <div class="flex-none">
+                <button class="btn btn-square btn-ghost lg:hidden">
+                  <i class="fal fa-bars fa-2x"></i>
+                </button>
+              </div>
+              <% if (member) { %>
+                <div class="flex-none">
+                  <a class="btn btn-ghost" style="background-color: #7f4699;"
+                     href="/user"><i class="fas fa-user"></i>&nbsp;<%-member.username %>#<%- member.discriminator %></a
+                  >
+                </div>
+              <% } else { %>
+                <div class="flex-none">
+                  <a class="btn btn-ghost" style="background-color: #7f4699;"
+                     href="/login"><i class="fal fa-sign-in fa-2x lg:mr-2"></i
+                    ><span class="hidden lg:inline-block">Gİrİş Yap</span></a
+                  >
+                </div>
+              <% } %>
+            </nav>
+            <div
+              class="navbar mobile-menu-allegro bg-base-300 border-b border-base-300 h-auto z-20 text-neutral-content absolute transform -translate-x-full transition-all duration-200 w-full lg:hidden p-4"
+            >
+              <ul class="inline-block w-full">
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Ana Sayfa</a
+                  >
+                </li>
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/threads"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Konular</a
+                  >
+                </li>
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/create-thread"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Konu Oluştur</a
+                  >
+                </li>
+              </ul>
+            </div>
+                <br>
+                  <br>
+                <br>
+                  <br>
+            <div class="hero bg-base-300" style="height: 40rem">
+              <div class="text-center hero-content">
+                <div class="max-w-full">
+                  <h1 class="text-5xl" style="color: #7f4699;">Site Geliştiricleri</h1>
+                  <br>
+                  <br>
+                  <style>
+                    .üyelik {
+                      border-radius: 10px;
+                      color: #fff;
+                    }
+                    .yönetici {
+                      background-color: #d66565;
+                      color: #333;
+                    }
+                  </style>
+                  <div id="divler">
+                    <div class="head padding">
+                      <div class="head-img-section" id="savatar">
+                        <img draggable="false" class="head-img" src="<%- avatar_melih %>">
+                      </div>
+                      <div class="head-text-section">
+                        <b>USER<span class="discrim">#0000</span></b>
+                        <br>
+                        <br>
+                        <p class="üyelik yönetici">YÖNETİCİ</p>
+                        <div class="head-text-exp">
+                        </tippy>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="head padding">
+                      <div class="head-img-section" id="savatar">
+                        <img draggable="false" class="head-img" src="<%- avatar_kaan %>">
+                      </div>
+                      <div class="head-text-section">
+                        <b>USER<span class="discrim">#0000</span></b>
+                        <br>
+                        <br>
+                        <p class="üyelik yönetici">YÖNETİCİ</p>
+                        <div class="head-text-exp">
+                        </tippy>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                <br>
+                  <br>
+                <br>
+                  <br>
+            <style> 
+              #divler {
+                margin: 0 auto;
+                padding: 0 auto;
+              }
+            </style>
+            <div>
+              <div class="bg-base-400 text-base-content">
+                <footer class="max-w-6xl px-4 py-20 mx-auto footer">
+                  <div>
+                    <div class="inline-block text-3xl font-title">
+                      <span style="color: #7f4699;">Takolya</span>
+                    </div>
+                    <p class="opacity-50">
+                      Türkçe oyun platformu!
+                    </p>
+                  </div>
+                  <div>
+                    <span class="footer-title">Menü</span
+                    ><a href="/" class="link link-hover">Ana Sayfa</a
+                    ><a href="/create-thread" class="link link-hover">Konu Oluştur</a
+                    >
+                  </div>
+                  <div>
+                    <span class="footer-title">Lİnkler</span
+                    ><a href="https://discord.gg/developers" class="link link-hover"
+                      >Destek Sunucusu</a
+                    ><a href="/login" class="link link-hover"
+                      >Giriş Yap</a
+                    >
+                  </div>
+                </footer>
+              </div>
+              <footer
+                class="px-4 py-10 border-t footer bg-base-400 border-base-300 text-base-content footer-center"
+              >
+                <div
+                  class="flex flex-col items-center justify-between w-full max-w-6xl sm:flex-row"
+                >
+                  <a
+                    rel="noopener"
+                    target="_blank"
+                    class="inline-flex items-center justify-center hover:opacity-90"
+                    ><div class="text-left">
+                      <p class="text-xs text-opacity-50 text-base-content">
+                        Takolya © 2022 - Tüm hakları saklıdır.
+                      </p>
+                    </div></a
+                  >
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </html>
+    </div>
+    <script id="__NEXT_DATA__" type="application/json">
+      {
+        "props": { "pageProps": {} },
+        "page": "/",
+        "query": {},
+        "buildId": "C95lqdqwZ5vGD4yNUSLu7",
+        "nextExport": true,
+        "autoExport": true,
+        "isFallback": false,
+        "scriptLoader": []
+      }
+    </script>
+    <style>
+      /* Linkando Fontes */
+      /* Google Fonts API > https://fonts.google.com */
+      
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap'); /* lato */
+      
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&display=swap'); /* poppins */
+      
+      /* font-family: "Source Sans Pro", sans-serif; */
+      /* font-family: "Poppins", sans-serif; */
+      
+      /*
+         ----------- "root" -----------
+          - cor do fundo ( body ) : #171717
+          - cor do nickname ( h3 ) : #9466FF
+          - cor da tag ( span ) : #E1E1E6
+          - cor da base da carta : #202124
+         ------------------------------
+      */
+      
+
+
+img {
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none
+}
+
+@media only screen and (min-width: 640px) {
+	.padding {
+		padding-left: 15%;
+		padding-right: 15%
+	}
+	.padding {
+		padding-left: 23%;
+		padding-right: 23%;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-gap: 10px;
+	  }
+	.grid-container > div {
+		text-align: left;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.padding {
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+	.section {
+		padding-top: 4%;
+	}
+}
+
+@media only screen and (min-width: 640px) {
+	.section {
+		padding-top: 4%;
+	}
+}
+
+.head {
+	padding-top: 5%;
+	margin-left: -5px;
+}
+    
+.head-img {
+	width: 150px;
+	border-radius: 999%;
+	border: 5px solid #1f2937;
+  transition: 1s;
+}
+
+.head-img:hover {
+transform: rotate(180deg);
+width: 150px;
+-webkit-transform: rotate(180deg);
+}
+
+.head-img-section {
+	display: inline-block;
+	margin: 1px
+}
+
+.head-text {
+	font-size: 25px;
+	font-weight: 700;
+	text-align: left;
+	line-height: 1.1;
+}
+
+.head-text-min {
+	font-size: 15px;
+	font-weight: 300;
+	text-align: left
+}
+
+.head-text-section {
+	float: center;
+	margin: 0px
+}
+
+.navbar-img {
+	width: 45px;
+    cursor: pointer;
+}
+
+
+
+
+
+.ver {
+	color: #e9e9e9;
+	font-size: 18px;
+	text-decoration: none
+}
+
+.ver:hover {
+	background-image: linear-gradient(120deg, #b5b5e7, #b5b5e7);
+	background-repeat: no-repeat;
+	background-size: 100% .1em;
+	background-position: 0 88%;
+	transition: background-size .25s ease-in;
+	text-decoration: none;
+	font-size: 18px;
+	color: white;
+}
+
+::selection {
+	background-color: #b5b5e7;
+}
+
+.about-me {
+	float: left;
+	padding-top: 4%;
+}
+
+.about-me-text {
+	font-size: 21px;
+	font-weight: 500;
+	text-align: left;
+}
+
+.about-me-text-min {
+	font-size: 18px;
+	font-weight: 300;
+	text-align: left
+}
+
+.linkz {
+	color: #fff;
+    text-decoration: none;
+    background-image: -webkit-gradient(linear, left top, right top, from(#b5b5e7), to(#b5b5e7));
+    background-image: linear-gradient(90deg, #b5b5e7 0%, #b5b5e7 100%);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 30% 2px;
+    -webkit-transition: 500ms ease;
+    transition: 500ms ease;
+}
+
+.linkz:hover {
+	text-decoration: none;
+	color: white;
+	background-size: 100% 2px;
+}
+
+.head-text-exp {
+	padding-top: 1%;
+	font-size: 16px;
+	font-weight: normal
+}
+
+.social-bt {
+	margin-left: 1px;
+	font-size: 31px;
+	float: center;
+	background-color: transparent;
+	color: white;
+	border-radius: 5px;
+	margin-right: 17px;
+	margin-bottom: 8px;
+  	text-decoration: none;
+	-webkit-transform: scale(1);
+  	-ms-transform: scale(1);
+  	-moz-transform: scale(1);
+}
+
+.div-sizer {
+	margin-left: 1px;
+	font-size: 31px;
+	float: center;
+	background-color: transparent;
+	color: white;
+	border-radius: 5px;
+	margin-right: 17px;
+	margin-bottom: 8px;
+  	text-decoration: none;
+	-webkit-transform: scale(1);
+  	-ms-transform: scale(1);
+  	-moz-transform: scale(1);
+}
+
+.social-bt:hover {
+	text-decoration: none;
+	color: white;
+}
+    
+.social {
+	float: center;
+	padding-top: 4%;
+}
+    
+.social-text {
+	font-size: 21px;
+	font-weight: 500;
+	text-align: left;
+}
+
+.social-text-min {
+	font-size: 18px;
+	font-weight: 300;
+	text-align: center;
+	text-overflow: none;
+	text-decoration: none;
+}
+
+.active {
+	background-image: linear-gradient(120deg, #b5b5e7, #b5b5e7);
+	background-repeat: no-repeat;
+	background-size: 100% .1em;
+	background-position: 0 88%;
+	transition: background-size .25s ease-in;
+	text-decoration: none;
+	color: white
+}
+
+.active:hover {
+	text-decoration: none;
+	display: inline;
+	color: white
+}
+
+.button {
+	float: left;
+	display: inline-block;
+	font-size: 15px;
+	color: #fff;
+	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 5px;
+	padding: .625rem .9375rem;
+	transition: all 0.3s
+}
+
+.button:hover {
+	opacity: 0.8;
+	color: #fff;
+	text-decoration: none;
+}
+    
+.tippy-box[data-theme~=ws] {
+  border-radius: 0.5rem;
+	color: #fff;
+	/*box-shadow: 0 0 20px 4px rgba(154, 161, 177, .15), 0 4px 80px -8px rgba(36, 40, 47, .25), 0 4px 4px -2px rgba(91, 94, 105, .15);*/
+	background-color: #1f2937;
+}
+
+.tippy-box[data-theme~=ws][data-placement^=top]>.tippy-arrow:before {
+	border-top-color: #2d314a
+}
+
+.tippy-box[data-theme~=ws][data-placement^=bottom]>.tippy-arrow:before {
+	border-bottom-color: #2d314a
+}
+
+.tippy-box[data-theme~=ws][data-placement^=left]>.tippy-arrow:before {
+	border-left-color: #2d314a
+}
+
+.tippy-box[data-theme~=ws][data-placement^=right]>.tippy-arrow:before {
+	border-right-color: #2d314a
+}
+
+.tippy-box[data-theme~=ws]>.tippy-backdrop {
+	background-color: #2d314a
+}
+
+.pr-text {
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+.card {
+	background-color: #1f2937;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar {
+	width: 3px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #b5b5e7;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #111827;
+}
+
+.discrim {
+  color: #b9bbbe;
+}
+
+.footer {
+    padding-bottom: 2%;
+}
+
+.mbb {
+	color: #b5b5e7;
+}
+
+.div-techs {
+	background-color: #1f2937;
+}
+
+.v-demo {
+    color: #fff;
+}
+    </style>
+  </body>
+  <style>
+    ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#000;box-shadow:inset 0 0 8px #808080}::-webkit-scrollbar-thumb{background:#808080;border-radius:8px}::-webkit-scrollbar-thumb:hover{background:#000}
+  </style>
+</html>

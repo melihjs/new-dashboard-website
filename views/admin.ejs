@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Takolya - Yetkili Paneli</title>
+    <meta name="next-head-count" content="3" />
+    <link
+      rel="preload"
+      href="takolya.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="takolya.css"
+      data-n-g=""
+    />
+    <noscript data-n-css=""></noscript>
+    <script
+      defer=""
+      nomodule=""
+      src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"
+    ></script>
+    <script
+      src="/_next/static/chunks/webpack-af28476a2e7790fd48db.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/framework-2191d16384373197bc0a.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/main-011e14431c997dd5213e.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/_app-509c2dc37a21b6cdf9cc.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/index-d2acd689f30c49e2cc47.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/C95lqdqwZ5vGD4yNUSLu7/_buildManifest.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/C95lqdqwZ5vGD4yNUSLu7/_ssgManifest.js"
+      defer=""
+    ></script>
+  </head>
+  <body>
+    <div id="__next">
+      <html data-theme="dark">
+        <div class="bg-base-300 overflow-x-hidden">
+          <div class="transition-all duration-300">
+            <nav
+              class="navbar bg-base-400 lg:sticky top-0 h-20 z-50 text-neutral-content p-4"
+            >
+              <div class="flex-none px-2 mx-2">
+                <span class="text-lg font-bold">Takolya</span>
+              </div>
+              <div class="flex-1 px-2 mx-2">
+                <div class="items-stretch hidden lg:flex">
+                  <a
+                    href="/"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4 text-white underline"
+                    >Ana Sayfa</a
+                  ><a
+                    href="/threads"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                    >Konular</a
+                  ><a
+                    href="/create-thread"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                    >Konu Oluştur</a
+                  ><% if (member) { %>
+                    <% if (!admins.includes(member.id)) { %>
+                      <a
+                        href="/redeem"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Kod Kullan</a
+                      >
+                    <% } else { %>
+                      <a
+                        href="/redeem"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Kod Kullan</a
+                      ><a
+                        href="/admin"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Yetkili Paneli</a
+                      >                    
+                    <% } %>
+                  <% } else { %>
+                    <a
+                      href="/redeem"
+                      class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                      >Kod Kullan</a
+                    >
+                  <% } %>
+                </div>
+              </div>
+              <div class="flex-none">
+                <button class="btn btn-square btn-ghost lg:hidden">
+                  <i class="fal fa-bars fa-2x"></i>
+                </button>
+              </div>
+              <% if (member) { %>
+                <div class="flex-none">
+                  <a class="btn btn-ghost" style="background-color: #7f4699;"
+                     href="/user"><i class="fas fa-user"></i>&nbsp;<%-member.username %>#<%- member.discriminator %></a
+                  >
+                </div>
+              <% } else { %>
+                <div class="flex-none">
+                  <a class="btn btn-ghost" style="background-color: #7f4699;"
+                     href="/login"><i class="fal fa-sign-in fa-2x lg:mr-2"></i
+                    ><span class="hidden lg:inline-block">Gİrİş Yap</span></a
+                  >
+                </div>
+              <% } %>
+            </nav>
+            <div
+              class="navbar mobile-menu-allegro bg-base-300 border-b border-base-300 h-auto z-20 text-neutral-content absolute transform -translate-x-full transition-all duration-200 w-full lg:hidden p-4"
+            >
+              <ul class="inline-block w-full">
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Ana Sayfa</a
+                  >
+                </li>
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/threads"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Konular</a
+                  >
+                </li>
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/create-thread"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Konu Oluştur</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <style>
+              .inputt {
+                padding: 8px;
+                display: block;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                width: 100%;
+                color: #333;
+              }
+            </style>
+                <br>
+                <br>
+            <div class="hero bg-base-300" style="height: 40rem">
+              <div class="text-center hero-content">
+                <div class="max-w-full">
+                  <form enctype="application/json" action='/admin' method='POST'>
+                    <h1 class="text-5xl" style="color: #7f4699;">Yetkili Paneli</h1>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h1 class="text-3xl" style="color: #7f4699;">Kod Oluşturma</h1>
+                    <br>
+                    <br>
+                    <div class="form__group field">
+                      <input type="input" class="form__field" placeholder="Kod" name="code" id='code' />
+                      <label for="code" class="form__label">Kod</label>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="flex items-center justify-center">
+                      <button type="submit" class="btn rounded-md bg-blurple border-none hover:bg-blurple-dark glow-blurple">
+                        Oluştur&nbsp;<i class="fas fa-paper-plane"></i>
+                      </button>
+                    </div>
+                     <% if (alert == 'yes') { %>
+                      <br>
+                      <br>
+                      <% if (msg_type == 'alert') { %>
+                        <div class="alert" style='background-color: #f44336;'>
+                          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>&nbsp;&nbsp;<%- msg_content %>
+                        </div>
+                      <% } else if (msg_type == 'success') { %>
+                        <div class="alert" style='background-color: #5ceb57;'>
+                          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>&nbsp;&nbsp;<%- msg_content %>
+                        </div>
+                      <% } %>
+                    <% } else { %><% } %>
+                  </form>
+                </div>
+              </div>
+            </div>
+                <br>
+                  <br>
+                  <br>
+                      <br>
+                  <br>
+            <div>
+              <div class="bg-base-400 text-base-content">
+                <footer class="max-w-6xl px-4 py-20 mx-auto footer">
+                  <div>
+                    <div class="inline-block text-3xl font-title">
+                      <span style="color: #7f4699;">Takolya</span>
+                    </div>
+                    <p class="opacity-50">
+                      Türkçe oyun platformu!
+                    </p>
+                  </div>
+                  <div>
+                    <span class="footer-title">Menü</span
+                    ><a href="/" class="link link-hover">Ana Sayfa</a
+                    ><a href="/create-thread" class="link link-hover">Konu Oluştur</a
+                    >
+                  </div>
+                  <div>
+                    <span class="footer-title">Lİnkler</span
+                    ><a href="https://discord.gg/developers" class="link link-hover"
+                      >Destek Sunucusu</a
+                    ><a href="/login" class="link link-hover"
+                      >Giriş Yap</a
+                    >
+                  </div>
+                </footer>
+              </div>
+              <footer
+                class="px-4 py-10 border-t footer bg-base-400 border-base-300 text-base-content footer-center"
+              >
+                <div
+                  class="flex flex-col items-center justify-between w-full max-w-6xl sm:flex-row"
+                >
+                  <a
+                    rel="noopener"
+                    target="_blank"
+                    class="inline-flex items-center justify-center hover:opacity-90"
+                    ><div class="text-left">
+                      <p class="text-xs text-opacity-50 text-base-content">
+                        Takolya © 2022 - Tüm hakları saklıdır.
+                      </p>
+                    </div></a
+                  >
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </html>
+    </div>
+    <script id="__NEXT_DATA__" type="application/json">
+      {
+        "props": { "pageProps": {} },
+        "page": "/",
+        "query": {},
+        "buildId": "C95lqdqwZ5vGD4yNUSLu7",
+        "nextExport": true,
+        "autoExport": true,
+        "isFallback": false,
+        "scriptLoader": []
+      }
+    </script>
+    <style>
+      $primary: #11998e;
+      $secondary: #38ef7d;
+      $white: #fff;
+      $gray: #9b9b9b;
+      .form__group {
+        position: relative;
+        padding: 15px 0 0;
+        margin-top: 10px;
+        width: 50%;
+      }
+      
+      .form__field {
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid $gray;
+        outline: 0;
+        font-size: 1.3rem;
+        color: $white;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+      
+        &::placeholder {
+          color: transparent;
+        }
+      
+        &:placeholder-shown ~ .form__label {
+          font-size: 1.3rem;
+          cursor: text;
+          top: 20px;
+        }
+      }
+      
+      .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: $gray;
+      }
+      
+      .form__field:focus {
+        ~ .form__label {
+          position: absolute;
+          top: 0;
+          display: block;
+          transition: 0.2s;
+          font-size: 1rem;
+          color: $primary;
+          font-weight:700;    
+        }
+        padding-bottom: 6px;  
+        font-weight: 700;
+        border-width: 3px;
+        border-image: linear-gradient(to right, $primary,$secondary);
+        border-image-slice: 1;
+      }
+      /* reset input */
+      .form__field{
+        &:required,&:invalid { box-shadow:none; }
+      }
+      .alert {
+        padding: 20px;
+        background-color: #f44336; /* Red */
+        color: white;
+        margin-bottom: 15px;
+      }
+            
+      .success {
+        padding: 20px;
+        background-color: #5ceb57; /* Green */
+        color: white;
+        margin-bottom: 15px;
+      }
+      
+      /* The close button */
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      /* When moving the mouse over the close button */
+      .closebtn:hover {
+        color: black;
+      }
+    </style>
+  </body>
+  <style>
+    ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#000;box-shadow:inset 0 0 8px #808080}::-webkit-scrollbar-thumb{background:#808080;border-radius:8px}::-webkit-scrollbar-thumb:hover{background:#000}
+    .alert {
+      opacity: 1;
+      transition: opacity 0.6s; /* 600ms to fade out */
+    }
+    .success {
+      opacity: 1;
+      transition: opacity 0.6s; /* 600ms to fade out */
+    }
+  </style>
+</html>

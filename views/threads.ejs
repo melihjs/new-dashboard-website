@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>Takolya - Konular</title>
+    <meta name="next-head-count" content="3" />
+    <link
+      rel="preload"
+      href="takolya.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="takolya.css"
+      data-n-g=""
+    />
+    <link
+      rel="preload"
+      href="preload.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="preload.css"
+      data-n-g=""
+    />
+    <noscript data-n-css=""></noscript>
+    <script
+      defer=""
+      nomodule=""
+      src="/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"
+    ></script>
+    <script
+      src="/_next/static/chunks/webpack-af28476a2e7790fd48db.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/framework-2191d16384373197bc0a.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/main-011e14431c997dd5213e.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/_app-509c2dc37a21b6cdf9cc.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/chunks/pages/index-d2acd689f30c49e2cc47.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/C95lqdqwZ5vGD4yNUSLu7/_buildManifest.js"
+      defer=""
+    ></script>
+    <script
+      src="/_next/static/C95lqdqwZ5vGD4yNUSLu7/_ssgManifest.js"
+      defer=""
+    ></script>
+  </head>
+  <body>
+    <div id="__next">
+      <html data-theme="dark">
+        <div class="bg-base-300 overflow-x-hidden">
+          <div class="transition-all duration-300">
+            <nav
+              class="navbar bg-base-400 lg:sticky top-0 h-20 z-50 text-neutral-content p-4"
+            >
+              <div class="flex-none px-2 mx-2">
+                <span class="text-lg font-bold">Takolya</span>
+              </div>
+              <div class="flex-1 px-2 mx-2">
+                <div class="items-stretch hidden lg:flex">
+                  <a
+                    href="/"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4 text-white underline"
+                    >Ana Sayfa</a
+                  ><a
+                    href="/threads"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                    >Konular</a
+                  ><a
+                    href="/create-thread"
+                    class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                    >Konu Oluştur</a
+                  ><% if (member) { %>
+                    <% if (!admins.includes(member.id)) { %>
+                      <a
+                        href="/redeem"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Kod Kullan</a
+                      >
+                    <% } else { %>
+                      <a
+                        href="/redeem"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Kod Kullan</a
+                      ><a
+                        href="/admin"
+                        class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                        >Yetkili Paneli</a
+                      >                    
+                    <% } %>
+                  <% } else { %>
+                    <a
+                      href="/redeem"
+                      class="transition-all duration-200 hover:text-white text-gray-300 hover:underline items-center flex mr-4"
+                      >Kod Kullan</a
+                    >
+                  <% } %>
+                </div>
+              </div>
+              <div class="flex-none">
+                <button class="btn btn-square btn-ghost lg:hidden">
+                  <i class="fal fa-bars fa-2x"></i>
+                </button>
+              </div>
+              <% if (member) { %>
+                <div class="flex-none">
+                  <a class="btn btn-ghost" style="background-color: #7f4699;"
+                     href="/user"><i class="fas fa-user"></i>&nbsp;<%-member.username %>#<%- member.discriminator %></a
+                  >
+                </div>
+              <% } else { %>
+                <div class="flex-none">
+                  <a class="btn btn-ghost" style="background-color: #7f4699;"
+                     href="/login"><i class="fal fa-sign-in fa-2x lg:mr-2"></i
+                    ><span class="hidden lg:inline-block">Gİrİş Yap</span></a
+                  >
+                </div>
+              <% } %>
+            </nav>
+            <div
+              class="navbar mobile-menu-allegro bg-base-300 border-b border-base-300 h-auto z-20 text-neutral-content absolute transform -translate-x-full transition-all duration-200 w-full lg:hidden p-4"
+            >
+              <ul class="inline-block w-full">
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Ana Sayfa</a
+                  >
+                </li>
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/threads"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Konular</a
+                  >
+                </li>
+                <li class="mb-1 w-full inline-block">
+                  <a
+                    href="/create-thread"
+                    class="block p-4 text-sm rounded-lg font-semibold text-gray-400 hover:text-blurple transition-all duration-150 hover:bg-base-400"
+                    >Konu Oluştur</a
+                  >
+                </li>
+              </ul>
+            </div>
+<div class="pt-10 mx-auto flex flex-col items-center justify-center"><lottie-player src="https://assets1.lottiefiles.com/packages/lf20_bpqri9y8.json" background="transparent" speed="1" style="width:200px;height:150px" loop="" autoplay="true"></lottie-player><p class="animateHeader text-5xl font-extrabold text-white" style="color: #7f4699;">Konular</p>
+              <br>
+       
+              <div class="lg:max-w-screen-lg mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-4"><div class="flex flex-col justify-center text-white rounded"><div class="flex-1 gap-x-4 flex items-center bg-gradient-to-b from-neutral-900/80 to-neutral-900/20 p-3 rounded-full">
+                  <% if (sites == 'h1') { %>
+                    <div id="divler2">
+                      <%- divlersite %>
+                    </div>
+                  <% } else if (sites == 'div') { %>
+                    <div id="divler">
+                      <%- divlersite %>
+                    </div>
+                  <% } %>
+                </div>
+                </div>
+              </div>
+            </div>
+            <% if (sites == 'h1') { %>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            <% } else if (sites == 'div') { %>
+              <br>
+              <br>
+              <br>
+              <br>
+            <% }%>
+            <div>
+              <div class="bg-base-400 text-base-content">
+                <footer class="max-w-6xl px-4 py-20 mx-auto footer">
+                  <div>
+                    <div class="inline-block text-3xl font-title">
+                      <span style="color: #7f4699;">Takolya</span>
+                    </div>
+                    <p class="opacity-50">
+                      Türkçe oyun platformu!
+                    </p>
+                  </div>
+                  <div>
+                    <span class="footer-title">Menü</span
+                    ><a href="/" class="link link-hover">Ana Sayfa</a
+                    ><a href="/create-thread" class="link link-hover">Konu Oluştur</a
+                    >
+                  </div>
+                  <div>
+                    <span class="footer-title">Lİnkler</span
+                    ><a href="https://discord.gg/developers" class="link link-hover"
+                      >Destek Sunucusu</a
+                    ><a href="/login" class="link link-hover"
+                      >Giriş Yap</a
+                    >
+                  </div>
+                </footer>
+              </div>
+              <footer
+                class="px-4 py-10 border-t footer bg-base-400 border-base-300 text-base-content footer-center"
+              >
+                <div
+                  class="flex flex-col items-center justify-between w-full max-w-6xl sm:flex-row"
+                >
+                  <a
+                    rel="noopener"
+                    target="_blank"
+                    class="inline-flex items-center justify-center hover:opacity-90"
+                    ><div class="text-left">
+                      <p class="text-xs text-opacity-50 text-base-content">
+                        Takolya © 2022 - Tüm hakları saklıdır.
+                      </p>
+                    </div></a
+                  >
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </html>
+    </div>
+    <script id="__NEXT_DATA__" type="application/json">
+      {
+        "props": { "pageProps": {} },
+        "page": "/",
+        "query": {},
+        "buildId": "C95lqdqwZ5vGD4yNUSLu7",
+        "nextExport": true,
+        "autoExport": true,
+        "isFallback": false,
+        "scriptLoader": []
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      
+      .takolya{
+        position: relative;
+        justify-content: space-between;
+        padding: 5px;
+        display: table;
+        margin: auto;
+        float:left;
+      }
+      
+      .takolya .card{
+        position: relative;
+        width: 320px;
+        height: 450px;
+        background: #232323;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      
+      .takolya .card:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #9bdc28;
+        clip-path: circle(150px at 80% 20%);
+        transition: 0.5s ease-in-out;
+      }
+      
+      .takolya .card:hover:before{
+        clip-path: circle(300px at 80% -20%);
+      }
+      
+      .takolya .card:after{
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: -20%;
+        font-size: 12em;
+        font-weight: 800;
+        font-style: italic;
+        color: rgba(255,255,25,0.05)
+      }
+      
+      .takolya .card .imgBx{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10000;
+        width: 100%;
+        height: 220px;
+        transition: 0.5s;
+      }
+      
+      .takolya .card:hover .imgBx{
+        top: 0%;
+        transform: translateY(0%);
+          
+      }
+      
+      .takolya .card .imgBx img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-25deg);
+        width: 270px;
+      }
+      
+      .takolya .card .contentBx{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        transition: 1s;
+        z-index: 10;
+      }
+      
+      .takolya .card:hover .contentBx{
+        height: 210px;
+      }
+      
+      .takolya .card .contentBx h2{
+        position: relative;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #fff;
+        margin: 0;
+      }
+      
+      .takolya .card .contentBx .size, .takolya .card .contentBx .color {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 20px;
+        transition: 0.5s;opacity: 0;
+        visibility: hidden;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      
+      .takolya .card:hover .contentBx .size{
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.5s;
+      }
+      
+      .takolya .card:hover .contentBx .color{
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0.6s;
+      }
+      
+      .takolya .card .contentBx .size h3, .takolya .card .contentBx .color h3{
+        color: #fff;
+        font-weight: 300;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-right: 10px;
+      }
+      
+      .takolya .card .contentBx .size span{
+        width: 26px;
+        height: 26px;
+        text-align: center;
+        line-height: 26px;
+        font-size: 14px;
+        display: inline-block;
+        color: #111;
+        background: #fff;
+        margin: 0 5px;
+        transition: 0.5s;
+        color: #111;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      .takolya .card .contentBx .size span:hover{
+        background: #858780;
+      }
+      
+      .takolya .card .contentBx .color span{
+        width: 20px;
+        height: 20px;
+        background: #ff0;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      
+      .takolya .card .contentBx .color span:nth-child(2){
+        background: #9bdc28;
+      }
+      
+      .takolya .card .contentBx .color span:nth-child(3){
+        background: #03a9f4;
+      }
+      
+      .takolya .card .contentBx .color span:nth-child(4){
+        background: #e91e63;
+      }
+      
+      .takolya .card .contentBx a{
+        display: inline-block;
+        padding: 10px 20px;
+        background: #7f4699;
+        border-radius: 4px;
+        margin-top: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        color: #111;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: 0.5s;
+        margin-top: 0;
+      }
+      
+      .takolya .card:hover .contentBx a{
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 0.75s;
+        
+      }
+
+    </style>
+  </body>
+  <style>
+    ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#000;box-shadow:inset 0 0 8px #808080}::-webkit-scrollbar-thumb{background:#808080;border-radius:8px}::-webkit-scrollbar-thumb:hover{background:#000}
+  </style>
+</html>
